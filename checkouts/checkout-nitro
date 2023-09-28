@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Collection</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom, #6e45e2, #88d3ce); /* Purple gradient background */
+        }
+        .container {
+            max-width: 600px;
+            padding: 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff; /* White background */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333; /* Dark text color */
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #555; /* Label text color */
+        }
+        input[type="text"], input[type="url"], input[type="number"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .payment-details {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Payment Collection</h2>
+        <form id="payment-form">
+            <label for="payment-method">Select Payment Method:</label>
+            <select id="payment-method" name="payment-method">
+                <option value="upi">UPI</option>
+                <option value="ltc">Litecoin (LTC)</option>
+                <option value="btc">Bitcoin (BTC)</option>
+                <option value="eth">Ethereum (ETH)</option>
+                <option value="sol">Solana (SOL)</option>
+                <option value="cashapp">Cash App</option>
+            </select>
+
+            <!-- Quantity Selector -->
+            <label for="quantity">Quantity (pcs):</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" step="1" required>
+
+            <!-- Display Total Amount -->
+            <p>Total Amount: $<span id="total-amount">5.00</span></p>
+
+            <!-- Payment Addresses -->
+            <div class="payment-details" id="upi-details">
+                <label for="upi-id">UPI ID:</label>
+                <span id="upi-address-display">alpesh@fam</span>
+            </div>
+
+            <div class="payment-details" id="ltc-details">
+                <label for="ltc-address">Litecoin (LTC) Address:</label>
+                <span id="ltc-address-display">LhZ7woUjcgQBHp1g8QAFtmP8Xt7dX2CNap</span>
+            </div>
+
+            <div class="payment-details" id="btc-details">
+                <label for="btc-address">Bitcoin (BTC) Address:</label>
+                <span id="btc-address-display">1815UyWnCy8PzuNdyZk136LFjWZabTnpse</span>
+            </div>
+
+            <div class="payment-details" id="eth-details">
+                <label for="eth-address">Ethereum (ETH) Address:</label>
+                <span id="eth-address-display">0x675c462c8cf8e3cc4991196fb6f4d16a60640a11</span>
+            </div>
+
+            <div class="payment-details" id="sol-details">
+                <label for="sol-address">Solana (SOL) Address:</label>
+                <span id="sol-address-display">5EYBTRzgv7AVY4gSGtkcN7WEwGJMpf3hPxEr7jW6GFf5</span>
+            </div>
+
+            <div class="payment-details" id="cashapp-details">
+                <label for="cashapp-id">Cash App:</label>
+                <span id="cashapp-address-display">$boostsplug</span>
+            </div>
+
+
+            <!-- Add other payment methods' details here -->
+
+            <!-- Transaction ID -->
+            <label for="transaction-id">Transaction ID:</label>
+            <input type="text" id="transaction-id" name="transaction-id" placeholder="Enter transaction  or Cashapp Web receipt" required>
+
+            <!-- Your Mail -->
+            <label for="email">Your Mail:</label>
+            <input type="email" id="email" name="your-mail" placeholder="Enter Your Mail" required>
+
+            <!-- Customer Name -->
+            <label for="customer-name">Customer Name:</label>
+            <input type="text" id="customer-name" name="customer-name" placeholder="Enter customer's name" required>
+
+            <button type="button" id="collect-payment-button">Collect Payment</button>
+        </form>
+    </div>
+
+    <script>
+        // Calculate total amount based on quantity
+        const quantityInput = document.getElementById("quantity");
+        const totalAmountSpan = document.getElementById("total-amount");
+
+        quantityInput.addEventListener("input", function () {
+    const quantity = parseInt(this.value);
+    let pricePerItem = 5; // Update the default price per item to $5
+
+    // Check if the selected payment method is Cash App
+    if (paymentMethodSelect.value === "cashapp") {
+        // If Cash App is selected, add $2 to the price per item
+        pricePerItem += 2;
+    }
+
+    const totalAmount = (quantity * pricePerItem).toFixed(2);
+    totalAmountSpan.textContent = totalAmount;
+});
+
+
+
+        // Show/hide payment addresses based on the selected payment method
+        const paymentMethodSelect = document.getElementById("payment-method");
+        const paymentDetails = document.querySelectorAll(".payment-details");
+
+        paymentMethodSelect.addEventListener("change", function () {
+            paymentDetails.forEach(detail => {
+                detail.style.display = "none";
+            });
+
+            const selectedPaymentMethod = this.value;
+            document.getElementById(`${selectedPaymentMethod}-details`).style.display = "block";
+        });
+
+        // Discord Webhook Functionality
+        const discordWebhookUrl = 'https://discord.com/api/webhooks/1156668361330147348/WdSLnEhcwSxWgIttEnN3LPSbURspfiwShvGRDcbQTAUjUYfBhec3BrITgP_lGv_FwYVo';
+
+        document.getElementById('collect-payment-button').addEventListener('click', () => {
+            const selectedPaymentMethod = paymentMethodSelect.value;
+            const customerName = document.getElementById('customer-name').value;
+            const transactionId = document.getElementById('transaction-id').value;
+            const yourMail = document.getElementById('email').value;
+
+            const data = {
+                content: `Payment collected from ${customerName} via ${selectedPaymentMethod}\nTransaction ID: ${transactionId}\nYour Mail: ${yourMail}`
+            };
+
+            fetch(discordWebhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Payment information sent to Discord successfully!');
+                } else {
+                    alert('Failed to send payment information to Discord webhook.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while sending payment information.');
+            });
+        });
+    </script>
+</body>
+</html>
