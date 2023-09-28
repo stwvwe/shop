@@ -7,15 +7,14 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
-            background-image: url('img/website bcg.jpg'); /* Replace 'your-background-image.jpg' with the actual image path */
-            background-size: cover; /* Cover the entire viewport */
-            background-repeat: no-repeat; /* Prevent image repetition */
-            background-attachment: fixed; /* Fix the background image in place */
+            margin: 0;
+            padding: 0;
+            background-image: url('img/website bcg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
-        /* Rest of your CSS styles */
         .top-bar {
             background-color: #007bff;
             color: #fff;
@@ -30,11 +29,11 @@
             display: inline-block;
             width: 300px;
             text-align: center;
-            transition: transform 0.3s; /* Add transition for smooth animation */
+            transition: transform 0.3s;
         }
 
         .product:hover {
-            transform: scale(1.05); /* Scale up the card on hover */
+            transform: scale(1.05);
         }
 
         .product img {
@@ -44,6 +43,10 @@
 
         .product h2 {
             margin-top: 10px;
+        }
+
+        .product .price {
+            font-weight: bold;
         }
 
         .buy-button {
@@ -56,46 +59,44 @@
     </style>
 </head>
 <body>
-    <!-- Top Bar -->
     <div class="top-bar">
         <h1>Welcome to our Product Catalog</h1>
     </div>
 
- <div class="product">
-        <h2>Server Boost</h2> <!-- Change this line -->
+    <div class="product">
         <img src="img/serverboosts.png" alt="Server Boost">
-        <h2>Server Boost</h2> <!-- Keep this line if you want the title to remain -->
-        <p>Price: $10/month</p>
+        <h2>Server Boost</h2>
+        <p class="price">Price: $10/month</p>
         <button class="buy-button" onclick="redirectToNextPage('file:///C:/htmls/checkouts/checkout-serverboosts.html')">Buy</button>
     </div>
 
-      <div class="product">
-    <img src="img/discord nitro.png" alt="Nitro">
-    <h2>Nitro</h2>
-    <p>Price: $5/month</p>
-    <button class="buy-button" onclick="redirectToNextPage('file:///C:/htmls/checkouts/checkout-nitro.html')">Buy</button>
-</div>
+    <div class="product">
+        <img src="img/discord nitro.png" alt="Nitro">
+        <h2>Nitro</h2>
+        <p class="price">Price: $5/month</p>
+        <button class="buy-button" onclick="redirectToNextPage('file:///C:/htmls/checkouts/checkout-nitro.html')">Buy</button>
+    </div>
 
-<div class="product">
-    <img src="img/spotify.png" alt="Spotify Solo">
-    <h2>Spotify Solo</h2>
-    <p>Price: $5/month</p>
-    <button class="buy-button" onclick="redirectToNextPage('spotify-solo.html')">Buy</button>
-</div>
+    <div class="product">
+        <img src="img/spotify.png" alt="Spotify Solo">
+        <h2>Spotify Solo</h2>
+        <p class="price">Price: $5/month</p>
+        <button class="buy-button" onclick="redirectToNextPage('spotify-solo.html')">Buy</button>
+    </div>
 
-<div class="product">
-    <img src="img/spotify.png" alt="Spotify Solo">
-    <h2>Spotify Duo</h2>
-    <p>Price: $X.XX/month</p> <!-- Replace X.XX with the actual price -->
-    <button class="buy-button" onclick="redirectToNextPage('spotify-solo.html')">Buy</button>
-</div>
+    <div class="product">
+        <img src="img/spotify.png" alt="Spotify Duo">
+        <h2>Spotify Duo</h2>
+        <p class="price">Price: $X.XX/month</p>
+        <button class="buy-button" onclick="redirectToNextPage('spotify-duo.html')">Buy</button>
+    </div>
 
-<div class="product">
-    <img src="img/spotify.png" alt="Spotify Solo">
-    <h2>Spotify Family</h2>
-    <p>Price: $X.XX/month</p> <!-- Replace X.XX with the actual price -->
-    <button class="buy-button" onclick="redirectToNextPage('spotify-solo.html')">Buy</button>
-</div>
+    <div class="product">
+        <img src="img/spotify.png" alt="Spotify Family">
+        <h2>Spotify Family</h2>
+        <p class="price">Price: $X.XX/month</p>
+        <button class="buy-button" onclick="redirectToNextPage('spotify-family.html')">Buy</button>
+    </div>
 
     <!-- Add other product cards here -->
 
