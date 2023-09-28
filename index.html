@@ -30,6 +30,7 @@
             width: 300px;
             text-align: center;
             transition: transform 0.3s;
+            position: relative; /* Added position relative */
         }
 
         .product:hover {
@@ -43,6 +44,17 @@
 
         .product h2 {
             margin-top: 10px;
+        }
+
+        /* Add styles for the name label */
+        .product .name-label {
+            background-color: #ff69b4; /* Purple-pinkish color */
+            color: #fff;
+            padding: 5px;
+            position: absolute; /* Position absolutely */
+            top: 0; /* Place at the top */
+            left: 0; /* Place at the left */
+            right: 0; /* Place at the right */
         }
 
         .buy-button {
@@ -62,13 +74,14 @@
 
     <!-- Product Cards -->
     <div class="product">
+        <div class="name-label">Server Boost</div>
         <img src="img/serverboosts.png" alt="Server Boost">
         <h2>Server Boost</h2>
         <p>Price: $10/month</p>
         <button class="buy-button" onclick="redirectToNextPage('file:///C:/htmls/checkouts/checkout-serverboosts.html')">Buy</button>
     </div>
 
-    <div class="product">
+      <div class="product">
         <img src="img/discord nitro.png" alt="Nitro">
         <h2>Nitro</h2>
         <p>Price: $5/month</p>
