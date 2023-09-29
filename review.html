@@ -1,177 +1,410 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Discord Message Display</title>
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Sora:wght@400&display=swap");
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="PNrgEJUEJxrfYHCyrU4Nu7Qxwnihj6kPKRWN5xro">
 
-        body {
-            background-color: #0d1117;
-            font-family: "Sora", sans-serif;
-            font-size: 16px;
-            font-weight: 400;
-            text-rendering: optimizeLegibility;
-        }
+        <title>MyVouches - Myvouches&#039;s Vouches</title>
+        <meta name="og:title" content="MyVouches - Myvouches&#039;s Vouches">
 
-        div.table-title {
-            display: block;
-            margin: auto;
-            max-width: 60%;
-            padding: 5px;
-            width: 100%;
-        }
+        <link rel="icon" type="image/png" href="/storage/logos/logo.png">
 
-        .table-title h3 {
-            color: #fff;
-            font-size: 30px;
-            font-weight: 400;
-            font-style: normal;
-        }
+                    <meta name="description" content="Tired of losing your discord vouches? Store & Show your Discord Vouches with ease with MyVouches.">
+            <meta name="og:description" content="Tired of losing your discord vouches? Store & Show your Discord Vouches with ease with MyVouches.">
+        
+        <meta property="og:type" content="website">
+        <meta name="theme-color" content="#8792FC">
+        <meta property="og:site_name" content="myvouch.es">
+        
+        <!-- Scripts -->
+        <link rel="preload" as="style" href="https://myvouch.es/build/assets/app-65311330.css" /><link rel="modulepreload" href="https://myvouch.es/build/assets/app-54b0665c.js" /><link rel="stylesheet" href="https://myvouch.es/build/assets/app-65311330.css" /><script type="module" src="https://myvouch.es/build/assets/app-54b0665c.js"></script>        <script src="https://kit.fontawesome.com/484893fcc1.js" crossorigin="anonymous"></script>
 
-        .table-fill {
-            background: #1b1e24;
-            border-radius: 30px;
-            border-collapse: collapse;
-            height: 320px;
-            margin: auto;
-            max-width: 60%;
-            padding: 5px;
-            width: 100%;
-            animation: float 5s infinite;
-        }
+        <!-- Styles -->
+        <!-- Livewire Styles -->
+<style >
+    [wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid], [wire\:loading\.inline-flex] {
+        display: none;
+    }
 
-        th {
-            color: #fff;
-            background: #1b1e24;
-            border-right: 7px solid #0d1117;
-            font-size: 23px;
-            font-weight: 100;
-            padding: 17px;
-            text-align: left;
-            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-            vertical-align: middle;
-        }
+    [wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {
+        display:none;
+    }
 
-        th:first-child {
-            border-top-left-radius: 20px;
-        }
+    [wire\:offline] {
+        display: none;
+    }
 
-        th:last-child {
-            border-top-right-radius: 20px;
-            border-right: none;
-        }
+    [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+    }
 
-        tr {
-            color: #8c8c8c;
-            font-size: 16px;
-            font-weight: normal;
-            text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
-        }
+    input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {
+        animation-duration: 50000s;
+        animation-name: livewireautofill;
+    }
 
-        tr:first-child {
-            border-top: none;
-        }
-
-        tr:last-child {
-            border-bottom: none;
-            bottom: 2rem;
-        }
-
-        tr:nth-child(odd) td {
-            background: #1e2228;
-        }
-
-        tr:last-child td:first-child {
-            border-bottom-left-radius: 20px;
-        }
-
-        tr:last-child td:last-child {
-            border-bottom-right-radius: 20px;
-        }
-
-        td {
-            background: #1b1e24;
-            padding: 20px;
-            text-align: left;
-            vertical-align: middle;
-            font-weight: 300;
-            font-size: 23px;
-            border-right: 7px solid #0d1117;
-        }
-
-        td:last-child {
-            border-right: 0px;
-        }
-
-        th.text-left {
-            text-align: left;
-        }
-
-        th.text-center {
-            text-align: center;
-        }
-
-        th.text-right {
-            text-align: right;
-        }
-
-        td.text-left {
-            text-align: left;
-        }
-
-        td.text-center {
-            text-align: center;
-        }
-
-        td.text-right {
-            text-align: right;
-        }
-    </style>
-</head>
-<body>
-    <div class="table-title">
-        <h3>Vouches</h3>
+    @keyframes livewireautofill { from {} }
+</style>
+    </head>
+    <body>
+                
+                <main wire:id="Q5oXQpdTOfgvkTMpizzW" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;Q5oXQpdTOfgvkTMpizzW&quot;,&quot;name&quot;:&quot;profile.profile&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;myvouches&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;50117e90&quot;,&quot;data&quot;:{&quot;user&quot;:[]},&quot;dataMeta&quot;:{&quot;models&quot;:{&quot;user&quot;:{&quot;class&quot;:&quot;App\\Models\\User&quot;,&quot;id&quot;:1,&quot;relations&quot;:[&quot;roles&quot;],&quot;connection&quot;:&quot;mysql&quot;,&quot;collectionClass&quot;:null}}},&quot;checksum&quot;:&quot;6f8fa8419b0d8b6f24bc22c54fbf830e08cfa92223d5009b14cb0ad53029728a&quot;}}" class="shop market">
+    <div class="mb-3 container-default">
+        <a href="https://myvouch.es"><img height="40px" src="/storage/logos/logo.png" alt="logo"></a>
     </div>
-    <table class="table-fill">
-        <thead>
-            <tr>
-                <th class="text-left">User</th>
-                <th class="text-left">Message</th>
-            </tr>
-        </thead>
-        <tbody id="main-container"></tbody>
-    </table>
-    <script>
-        // Sample data for multiple user-message pairs
-        var userMessages = [
-            { user: "1156261717018431630", message: "+rep @steve nitro 1 month lyf" },
-            { user: "784494246517669888", message: "+rep @steve 7x server boosts, delivered fast. 🙂Highly Recommended" },
-            { user: "User1", message: "+rep @steve nitro 1 month lyf" },
-            { user: "User2", message: "+rep @steve awesome" },
-            { user: "User1", message: "+rep @steve nitro 1 month lyf" },
-            { user: "User2", message: "+rep @steve awesome" },
-            { user: "User1", message: "+rep @steve nitro 1 month lyf" },
-            { user: "User2", message: "+rep @steve awesome" },
-            { user: "User3", message: "+rep @steve fantastic" }
-            // Add more user-message pairs as needed
-        ];
+    <div class="card_header" style="background-image: url(/storage/banners/default.png)">
+        <div class="profile">
+            <div class="avatar">
+                <img src="/storage/avatars/1694805552.png" alt="avatar">
+            </div>
+            <div class="data w-100">
+                <div class="row">
+                    <div class="col-xl-8">
+                        <h1><span class="text-primary">Myvouches</span>'s Vouches</h1>
+                        <p class="social mt-2 mb-0">Total vouches: <span
+                                class="text-primary">14</span></p>
+                    </div>
+                    <div class="col-xl-4 text-end">
+                                                    <a class="me-2" target="_blank" href="https://discord.gg/myvouches"><img height="35px"
+                                    src="/storage/logos/discord.svg" alt="discord"></a>
+                                                                            <a class="me-2" target="_blank" href="https://t.me/myvouches_support"><img height="35px"
+                                    src="/storage/logos/telegram.svg" alt="telegram"></a>
+                                                                            <a class="me-2" target="_blank" href="https://myvouch.es"><img height="38px"
+                                    src="/storage/logos/website.svg" alt="website"></a>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        // Function to add a user and message to the table
-        function addMessagesToTable(userMessages) {
-            var tableBody = document.getElementById("main-container");
+    <p class="fw-bold text-light">All the vouches from my Discord Server are automatically inputted into this page.</p>
 
-            for (var i = 0; i < userMessages.length; i++) {
-                var user = userMessages[i].user;
-                var message = userMessages[i].message;
+    <div class="row">
+                                    <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>cl500.vamp <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/1060502761919217694">(1060502761919217694)</a>
+                        </p>
+                        <p class="text-light">&lt;@338818980410163201&gt; best person 10/10 nbs</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº14</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-24 12:20:15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>acide_abienique <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/1142148870177038487">(1142148870177038487)</a>
+                        </p>
+                        <p class="text-light">nitro</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº13</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-24 11:45:25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>oreoservic.es <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/414544312953470978">(414544312953470978)</a>
+                        </p>
+                        <p class="text-light">cum cum cum for this product</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº12</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-21 20:57:46</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>hay42 <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/1122122529348272138">(1122122529348272138)</a>
+                        </p>
+                        <p class="text-light">10/10 love this bot easy to use and even easier to setup. awesome owner too very kind person definitely recommend</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº11</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-19 23:04:32</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>dhdilgkdofoffisppfof <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/804410323808550962">(804410323808550962)</a>
+                        </p>
+                        <p class="text-light">testing testing 123 123, great service! :)</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº10</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-18 08:23:02</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>echo.termed <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/1150893345565069363">(1150893345565069363)</a>
+                        </p>
+                        <p class="text-light">Great Service, big rep</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº9</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-17 20:14:11</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>hqmm <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/960304757132644422">(960304757132644422)</a>
+                        </p>
+                        <p class="text-light">seekb is underrated</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº8</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-17 01:02:24</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>gun <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/703264180354023499">(703264180354023499)</a>
+                        </p>
+                        <p class="text-light">the vouches came across really legit to my clients, leaving a good impression</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº7</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-16 20:19:42</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>picotres <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/286193704518156298">(286193704518156298)</a>
+                        </p>
+                        <p class="text-light">great service, the best developer I know</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº6</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-16 19:30:11</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>tq.m <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/635213492265287691">(635213492265287691)</a>
+                        </p>
+                        <p class="text-light">trusted owner providing another great servicw</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº5</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-16 16:56:10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>mrheaven <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/256184861105192961">(256184861105192961)</a>
+                        </p>
+                        <p class="text-light">cheap service, used their api as i already had my own discord bot</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº4</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-16 13:25:30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>snowproxies <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/462746474606886924">(462746474606886924)</a>
+                        </p>
+                        <p class="text-light">Sexy ass owner providing a great unique service</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº3</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-16 12:32:59</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>exploit <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/128155463140376576">(128155463140376576)</a>
+                        </p>
+                        <p class="text-light">everything is automated and it is easy to use, nice user panel and discord bot</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº2</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-16 12:22:24</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>remain <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/701288668769288272">(701288668769288272)</a>
+                        </p>
+                        <p class="text-light">great service to stop losing discord vouches, 10/10!</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº1</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-15 19:18:19</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6 mb-4">
+                    <div class="card card-secondary h-100">
+                        <p class="fw-bold text-primary mb-2"><i
+                                class="fa-solid fa-user me-2"></i><span>@</span>echo.termed <a
+                                target="_blank" class="btn-link"
+                                href="https://lookup.guru/1150893345565069363">(1150893345565069363)</a>
+                        </p>
+                        <p class="text-light">steveop</p>
+                        <div class="row">
+                            <div class="col-5">
+                                <span class="text-light">Vouch Nº0</span>
+                            </div>
+                            <div class="col-7 text-end">
+                                <span class="text-light">2023-09-17 20:14:11</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        </div>
+</main>
 
-                var newRow = document.createElement("tr");
-                newRow.innerHTML = "<td class='text-left'>" + user + "</td><td class='text-left'>" + message + "</td>";
-                tableBody.appendChild(newRow);
-            }
+<!-- Livewire Component wire-end:Q5oXQpdTOfgvkTMpizzW -->    
+        
+                        
+        <!-- Livewire Scripts -->
+
+<script src="/livewire/livewire.js?id=90730a3b0e7144480175" data-turbo-eval="false" data-turbolinks-eval="false" ></script>
+<script data-turbo-eval="false" data-turbolinks-eval="false" >
+    if (window.livewire) {
+	    console.warn('Livewire: It looks like Livewire\'s @livewireScripts JavaScript assets have already been loaded. Make sure you aren\'t loading them twice.')
+	}
+
+    window.livewire = new Livewire();
+    window.livewire.devTools(true);
+    window.Livewire = window.livewire;
+    window.livewire_app_url = '';
+    window.livewire_token = 'PNrgEJUEJxrfYHCyrU4Nu7Qxwnihj6kPKRWN5xro';
+
+	/* Make sure Livewire loads first. */
+	if (window.Alpine) {
+	    /* Defer showing the warning so it doesn't get buried under downstream errors. */
+	    document.addEventListener("DOMContentLoaded", function () {
+	        setTimeout(function() {
+	            console.warn("Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire\'s scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js")
+	        })
+	    });
+	}
+
+	/* Make Alpine wait until Livewire is finished rendering to do its thing. */
+    window.deferLoadingAlpine = function (callback) {
+        window.addEventListener('livewire:load', function () {
+            callback();
+        });
+    };
+
+    let started = false;
+
+    window.addEventListener('alpine:initializing', function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
         }
+    });
 
-        // Call the addMessagesToTable function with your array of user-message pairs
-        addMessagesToTable(userMessages);
-    </script>
-</body>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+</script>
+    </body>
 </html>
